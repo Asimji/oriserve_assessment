@@ -4,7 +4,7 @@ import {  Box, Button} from '@chakra-ui/react';
 
 const SearchModal = ({searchResults, handleClear, setShowSuggestions }) => {
   return (
-    <Box className="dropdown" position={'absolute'}  top= {{lg:'8%',md:'4%',base:'6%'}} left= {{lg:'34%',md:'31%',base:'25%'}} >
+    <Box className="dropdown" position={'absolute'}  top= '90%' left= {{lg:'34%',md:'31%',base:'25%'}} >
           {searchResults
                   .map((item,i) => (
               <div             

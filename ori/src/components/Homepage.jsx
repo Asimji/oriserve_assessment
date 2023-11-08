@@ -6,7 +6,6 @@ import SearchModal from './SearchModal';
 const apiKey = '4c048c2707f265505905a851bb4b4e8f';
 const apiUrl = `https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=${apiKey}&format=json&nojsoncallback=1&safe_search=1`;
 const perPage = 20; 
-const pageToFetch = 1;
 const Homepage = () => {
     const [photos,setPhotos]=useState([]);
     const [query,setQuery]=useState("");
@@ -28,6 +27,7 @@ const Homepage = () => {
     const debounceSearch=debounce((query)=>{
       fetch(`${apiUrl}&text=${query}&per_page=${page}`).then(res=>res.json()).then(res=>{setSearchResult(res.photos.photo)}).catch(e=>console.log(e))
     },300)
+
  
     // Input Change Method 
 const handleChange=(e)=>{
@@ -40,7 +40,8 @@ const handleSubmit=()=>{
     localStorage.setItem('searchDetail', JSON.stringify(updatedSearchHistory));
     return updatedSearchHistory;
   });
-  // Storing Search History
+
+
   debounceSearch(query)
 }
 
@@ -81,11 +82,11 @@ const handleClear=()=>{
 
     return (
     <Box>
-       <Flex direction={'column'} alignItems={'center'} justify={'center'} bgColor={'black'} textColor={'#ffff'} p={'3vh'}>
+       <Flex direction={'column'} alignItems={'center'} justify={'center'} bgColor={'black'} textColor={'#ffff'} p={'3vh'} position={'relative'}>
            <Heading>Search Photos</Heading>
            <Flex alignItems={'center'} gap={'2vh'}>
 
-           <Input placeholder='search' w={'25vw'} mt={'2vh'} onChange={(e)=>handleChange(e)}
+           <Input  placeholder='search' w={'25vw'} mt={'2vh'} onChange={(e)=>handleChange(e)}
             onClick={() => setShowSuggestions(true)}
             
             />
