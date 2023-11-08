@@ -45,7 +45,7 @@ This repository contains the code for the Fetching Flicker Data. The application
 
 The frontend is built using React.js and Chakra UI for the user interface along with Lodash Library for Debounce and Throttle Technique
 1. Oriserve 
-![Homepage](./ori/src/images/oriserve.png)
+![Homepage](./ori/src/images/ori.png)
 
 
 
